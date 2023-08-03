@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
+const methodOverride = require("method-override");
 const app = express();
 const port = 3000;
 const handlebars = require("express-handlebars");
@@ -17,11 +18,16 @@ app.use(express.json());
 // HTTP logger
 app.use(morgan("combined"));
 
+app.use(methodOverride("_method"));
+
 // Template engine
 app.engine(
   "hbs",
   handlebars.engine({
     extname: ".hbs",
+    helpers: {
+      sum: (a, b) => a + b,
+    },
   })
 );
 
