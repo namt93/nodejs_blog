@@ -1,4 +1,31 @@
 @import "variables";
-h1 {
-  color: $red-color;
+
+@media (min-width: 1620px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+.container {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+
+  .row {
+    // width: 100%;
+  }
+}
+
+.card-course-item {
+  margin-top: 16px;
+  max-height: 504px;
+
+  p {
+    height: 72px;
+    overflow: hidden;
+  }
+
+  .card-title {
+    min-height: 48px;
+  }
 }
