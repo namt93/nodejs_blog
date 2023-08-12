@@ -14,7 +14,7 @@
           <option value="delete">Delete</option>
         </select>
 
-        <button class="btn btn-primary btn-sm check-all-execute-btn disabled">
+        <button class="btn btn-primary btn-sm check-all-execute-btn" disabled>
             Execute
         </button>
     </div>
@@ -138,12 +138,6 @@
         renderCheckAllExecuteBtn();
       });
       
-      // Check all execute btn clicked
-      checkAllExecuteBtn.on('submit', function (e) {
-        if (!!$(this).hasClass('disabled')) {
-            e.preventDefault();
-        }
-      });
 
       // Course item checkbox changed
       courseItemCheckbox.change(function () {
@@ -156,9 +150,9 @@
       function renderCheckAllExecuteBtn() {
         var checkedCount = $('input[name="courseIds[]"]:checked').length;
         if (checkedCount > 0) {
-            checkAllExecuteBtn.removeClass('disabled');
+            checkAllExecuteBtn.attr('disabled', false);
         } else {
-            checkAllExecuteBtn.addClass('disabled')
+            checkAllExecuteBtn.attr('disabled', true);
         }
       }
 
